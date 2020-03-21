@@ -1,6 +1,7 @@
 class Api::V1::DailyTipsController < ApplicationController
   before_action :set_dailytip, only: [:show]
   def show
+    render json: @dailytip
   end
 
   def set_dailytip
