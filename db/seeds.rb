@@ -1,3 +1,4 @@
+
 puts 'Cleaning dailytip database'
 Dailytip.destroy_all
 
@@ -8,3 +9,14 @@ dailytip = Dailytip.create!(
   )
 
 puts 'Dailytip created'
+
+puts "Creating challenges"
+category = ["Fun", "Eco", "Sport", "Mental", "Social", "Group", "Art", "Other"]
+
+Challenge.create(title: "New Challenge1", description: "great description44", category: category.sample, duration: 5)
+Challenge.create(title: "New Challenge2", description: "great description44", category: category.sample, duration: 5)
+Challenge.create(title: "New Challenge3", description: "great description44", category: category.sample, duration: 5)
+
+puts "Challenge creation done."
+
+
