@@ -5,7 +5,6 @@ Rails.application.routes.draw do
         resources :challenges, only: [:show, :new, :create, :edit, :index, :destroy]
       end
       resources :dailytips, only: [:create, :show]
-
     end
   end
 end
