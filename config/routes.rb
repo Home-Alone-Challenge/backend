@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:show, :create] do
-        resources :challenges, only: [:show, :new, :create, :edit, :index, :destroy]
+        resources :challenges, only: [:show, :new, :create, :edit, :index, :destroy, :random_challenge]
       end
       resources :dailytips, only: [:index, :show]
     end

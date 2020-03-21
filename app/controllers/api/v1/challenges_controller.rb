@@ -1,12 +1,20 @@
 class Api::V1::ChallengesController < ApplicationController
+  before_action :set_id, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @challenges = Challenge.all
+    render json: @challenges
+  end
 
   def show
-    @challenge = Challenge.find(params[:id])
-    render json @challenge
+    render json: @challenge
   end
 
   def new
     @challenge = Challenge.new(challenge_params)
+  end
+
+  def edit
   end
 
   def create
@@ -18,7 +26,25 @@ class Api::V1::ChallengesController < ApplicationController
       end
   end
 
+  def update
+    @challenge.update(challenge_params)
+    render json: @challenge
+  end
+
+  def destroy
+    @challenge.destroy
+  end
+
+  def random_challenge
+    @challenge = Challenge.all.sample
+    render json: @challenge
+  end
+
   private
+
+  def set_id
+    @challenge = Challenge.find(params[:id])
+  end
 
   def challenge_params
     params.require(:challenge).permit(:title, :description, :duration, :category)
