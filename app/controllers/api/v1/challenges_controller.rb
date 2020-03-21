@@ -6,8 +6,12 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @challenges
   end
 
+  def random_challenge
+    @random_challenge = Challenge.all.sample
+    render json: @random_challenge
+  end
+
   def show
-    @challenge_random = Challenge.all.sample
     render json: @challenge
   end
 
