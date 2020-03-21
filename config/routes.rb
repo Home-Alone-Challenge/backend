@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      root to: 'challenges#index'
       resources :users, only: [:show, :create] do
         resources :challenges, only: [:show, :new, :create, :edit, :index, :destroy]
       end
