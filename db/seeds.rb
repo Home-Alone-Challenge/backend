@@ -20,7 +20,11 @@ dailytip = Dailytip.create!(
   description: "To maintain healthy blood levels, aim to get 10–30 minutes of midday sunlight, several times per week. People with darker skin may need a little more than this. Your exposure time should depend on how sensitive your skin is to sunlight.",
   )
 
+
 puts 'Dailytip created'
+
+puts 'Delete challenges'
+Challenge.destroy_all
 
 puts "Creating challenges"
 category = ["fun", "eco", "sport", "selfcare", "social", "group", "art", "other"]
