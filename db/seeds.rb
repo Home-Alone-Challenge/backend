@@ -1,10 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Cleaning dailytip database'
+Dailytip.destroy_all
+
+puts 'creating Dailytip'
+dailytip = Dailytip.create!(
+  title: "Wash Hands",
+  description: "Wet your hands with clean, running water (warm or cold), turn off the tap, and apply soap. Lather your hands by rubbing them together with the soap. Lather the backs of your hands, between your fingers, and under your nails. Scrub your hands for at least 20 seconds.",
+  )
+
+puts 'Dailytip created'
 
 puts "Creating challenges"
 category = ["Fun", "Eco", "Sport", "Mental", "Social", "Group", "Art", "Other"]
@@ -14,6 +18,5 @@ Challenge.create(title: "New Challenge2", description: "great description44", ca
 Challenge.create(title: "New Challenge3", description: "great description44", category: category.sample, duration: 5)
 
 puts "Challenge creation done."
-
 
 
