@@ -3,7 +3,7 @@ class CreateChallenges < ActiveRecord::Migration[5.2]
     create_table :challenges do |t|
       t.string :title
       t.text :description
-      t.references :category, foreign_key: true
+      t.string :category
 
       t.timestamps
     end
