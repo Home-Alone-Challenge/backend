@@ -1,4 +1,3 @@
-
 puts 'Cleaning dailytip database'
 Dailytip.destroy_all
 
@@ -10,9 +9,10 @@ dailytip = Dailytip.create!(
 
 dailytip = Dailytip.create!(
   title: "How to use hand sanitizer correctly",
-  description: "1. Make sure all organic matter is removed from hands. 2. Apply a dime sized amount of waterless hand sanitizer to the palm of one hand or use a waterless hand sanitizer wipe.
-3. Rub hands together covering all surfaces of hands and fingers.
-4. Rub until waterless hand sanitizer is absorbed.",
+  description: "1. Make sure all organic matter is removed from hands.
+    2. Apply a dime sized amount of waterless hand sanitizer to the palm of one hand or use a waterless hand sanitizer wipe.
+    3. Rub hands together covering all surfaces of hands and fingers.
+    4. Rub until waterless hand sanitizer is absorbed.",
   )
 
 dailytip = Dailytip.create!(
