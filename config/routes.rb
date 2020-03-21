@@ -6,10 +6,8 @@ Rails.application.routes.draw do
         resources :challenges, only: [:show, :new, :create, :edit, :index, :destroy]
       end
       resources :dailytips, only: [:create, :show]
-
       get '/random_challenge', to: "challenges#random_challenge", as: :random_challenge
-      get '/random_dailytip', to: "dailytips#dailytip", as: :random_dailytip
-
+      get '/random_dailytip', to: "dailytips#random_dailytip", as: :random_dailytip
     end
   end
 end
