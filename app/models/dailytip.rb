@@ -1,0 +1,2 @@
+class Dailytip < ApplicationRecord
+end
