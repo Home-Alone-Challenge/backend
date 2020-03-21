@@ -25,7 +25,7 @@ puts 'Dailytip created'
 puts "Creating challenges"
 category = ["fun", "eco", "sport", "selfcare", "social", "group", "art", "other"]
 
-Challenge.create(title: "NLittle Artist", description: "Zeichne ein Bild von dir in deinem nächsten Urlaub – im Stil einer Kindergartenkind-Zeichnung. Und schön bunt. Dann ab an den Kühlschrank damit – und wenn du magst, auch auf facebook & Insta!", category: "art", duration: 5)
+Challenge.create(title: "Little Artist", description: "Zeichne ein Bild von dir in deinem nächsten Urlaub – im Stil einer Kindergartenkind-Zeichnung. Und schön bunt. Dann ab an den Kühlschrank damit – und wenn du magst, auch auf facebook & Insta!", category: "art", duration: 5)
 Challenge.create(title: "Du Poet!", description: "Schreibe ein kleines aber feines Haiku-Gedicht", category: "art", duration: 5)
 Challenge.create(title: "Verkleide-sich-wer-kann", description: "Als Kinder haben wir uns ständig verkleidet, warum nicht heute? Suche oder bastle Dir eine Verkleidung. Mache und poste ein Selfie davon.", category: "fun", duration: 5)
 
