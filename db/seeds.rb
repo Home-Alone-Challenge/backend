@@ -11,7 +11,7 @@ dailytip = Dailytip.create!(
 puts 'Dailytip created'
 
 puts "Creating challenges"
-category = ["fun", "eco", "sport", "mental", "social", "group", "art", "other"]
+category = ["fun", "eco", "sport", "selfcare", "social", "group", "art", "other"]
 
 Challenge.create(title: "New Challenge1", description: "great description44", category: category.sample, duration: 5)
 Challenge.create(title: "New Challenge2", description: "great description44", category: category.sample, duration: 5)
