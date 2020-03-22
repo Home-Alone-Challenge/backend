@@ -1,3 +1,5 @@
+require 'pry'
+
 class Api::V1::ChallengesController < ApplicationController
   before_action :set_id, only: [:show, :edit, :update, :destroy]
   def index
@@ -45,11 +47,7 @@ class Api::V1::ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user_id = params[:user_id]
-    if @challenge.save
-      redirect_to api_v1_user_challenge_path(@challenge)
-    else
-      render error: { error: 'Aufgabe wurde nicht erstellt. Bitte überprüfe deine Eingaben.'}
-    end
+    @challenge.save
   end
 
   def update
