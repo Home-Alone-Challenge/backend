@@ -25,13 +25,13 @@ class Api::V1::DailytipsController < ApplicationController
 
   def set_daily
     if !Dailytip.find_by(daily: true).nil?
-      undaily_challenge = Dailytip.find_by(daily: true)
-      undaily_challenge.daily = false
-      undaily_challenge.save
+      undaily_dailytip = Dailytip.find_by(daily: true)
+      undaily_dailytip.daily = false
+      undaily_dailytip.save
     end
-    daily_challenge = Dailytip.all.sample
-    daily_challenge.daily = true
-    daily_challenge.save
+    daily_dailytip = Dailytip.all.sample
+    daily_dailytip.daily = true
+    daily_dailytip.save
   end
 
   def show
