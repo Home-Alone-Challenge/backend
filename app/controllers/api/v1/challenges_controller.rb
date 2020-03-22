@@ -2,13 +2,21 @@ class Api::V1::ChallengesController < ApplicationController
   before_action :set_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @challenges = Challenge.all
-    render json: @challenges
+  @challenges = Challenge.all.where(user_id: params[:user_id])
+  render json: @challenges
   end
 
   def random_challenge
     @random_challenge = Challenge.all.sample
     render json: @random_challenge
+  end
+
+  def daily_challenge
+    @daily_challenge = Challenge.all.sample
+    render json: @daily_challenge
+    #if 24 hours pass, increment the challenge id by one
+    #see heroku jobs
+
   end
 
   def show
@@ -17,13 +25,16 @@ class Api::V1::ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
+    render json: @challenge
   end
 
   def edit
+    render json: @challenge
   end
 
   def create
-    @challenge = Challenge.new(challenge_params)
+    @challenge.user_id = User.id
+    @challenge = Challenge.new(:title, :description, :duration, :category, @challenge.user_id)
       if @challenge.save
         render json: @challenge
       else
@@ -38,6 +49,7 @@ class Api::V1::ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
+    redirect_to api_v1_user_challenges_path
   end
 
   private
@@ -47,7 +59,6 @@ class Api::V1::ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:title, :description, :duration, :category)
+    params.require(:challenge).permit(:title, :description, :duration, :category, :user_id)
   end
-
 end
