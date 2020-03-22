@@ -1,3 +1,15 @@
+puts "Deleting dailytips"
+Dailytip.destroy_all
+puts "Dailytips deleted"
+
+puts "Deleting challenges"
+Challenge.destroy_all
+puts "Challenges deleted"
+
+puts "Deleting users"
+User.destroy_all
+puts "Users deleted"
+
 require 'csv'
 
 csv_text_dailytips = File.read(Rails.root.join('lib', 'seeds', 'daily_tips.csv'))
