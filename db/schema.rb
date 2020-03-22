@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2020_03_21_155338) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uuid", default: "c2a41108-e61e-41ef-8392-227ed0a05de9"
+
+    t.string "userId", default: "3d0549b6-7875-40a1-963e-565374aea8e5"
   end
 
 end
