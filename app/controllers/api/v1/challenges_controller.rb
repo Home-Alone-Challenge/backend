@@ -49,5 +49,4 @@ class Api::V1::ChallengesController < ApplicationController
   def challenge_params
     params.require(:challenge).permit(:title, :description, :duration, :category)
   end
-
 end
