@@ -1,38 +1,37 @@
-require 'csv'
+# require 'csv'
 
 puts 'Cleaning dailytip database'
 Dailytip.destroy_all
 
-csv_options = { col_sep: ',', headers: :first_row }
-filepath    = 'dailytips.csv'
-puts filepath
-puts "setup"
-CSV.foreach(filepath, csv_options) do |row|
-  dailytip = Dailytip.new
-  dailytip.title = row['Title']
-  dailytip.description = row['Description']
-  dailytip.save
-end
+# csv_options = { col_sep: ',', headers: :first_row }
+# filepath    = 'dailytips.csv'
+# puts filepath
+# puts "setup"
+# CSV.foreach(filepath, csv_options) do |row|
+#   dailytip = Dailytip.new
+#   dailytip.title = row['Title']
+#   dailytip.description = row['Description']
+#   dailytip.save
+# end
 
-# puts 'creating Dailytip'
-# dailytip = Dailytip.create!(
-#   title: "Wash Hands",
-#   description: "Wet your hands with clean, running water (warm or cold), turn off the tap, and apply soap. Lather your hands by rubbing them together with the soap. Lather the backs of your hands, between your fingers, and under your nails. Scrub your hands for at least 20 seconds.",
-#   )
+puts 'creating Dailytip'
+dailytip = Dailytip.create!(
+  title: "Wash Hands",
+  description: "Wet your hands with clean, running water (warm or cold), turn off the tap, and apply soap. Lather your hands by rubbing them together with the soap. Lather the backs of your hands, between your fingers, and under your nails. Scrub your hands for at least 20 seconds.",
+  )
 
-# dailytip = Dailytip.create!(
-#   title: "How to use hand sanitizer correctly",
-#   description: "1. Make sure all organic matter is removed from hands.
-#     2. Apply a dime sized amount of waterless hand sanitizer to the palm of one hand or use a waterless hand sanitizer wipe.
-#     3. Rub hands together covering all surfaces of hands and fingers.
-#     4. Rub until waterless hand sanitizer is absorbed.",
-#   )
+dailytip = Dailytip.create!(
+  title: "How to use hand sanitizer correctly",
+  description: "1. Make sure all organic matter is removed from hands.
+    2. Apply a dime sized amount of waterless hand sanitizer to the palm of one hand or use a waterless hand sanitizer wipe.
+    3. Rub hands together covering all surfaces of hands and fingers.
+    4. Rub until waterless hand sanitizer is absorbed.",
+  )
 
-# dailytip = Dailytip.create!(
-#   title: "How much sunshine should you get daily",
-#   description: "To maintain healthy blood levels, aim to get 10–30 minutes of midday sunlight, several times per week. People with darker skin may need a little more than this. Your exposure time should depend on how sensitive your skin is to sunlight.",
-#   )
-
+dailytip = Dailytip.create!(
+  title: "How much sunshine should you get daily",
+  description: "To maintain healthy blood levels, aim to get 10–30 minutes of midday sunlight, several times per week. People with darker skin may need a little more than this. Your exposure time should depend on how sensitive your skin is to sunlight.",
+  )
 
 puts 'Dailytip created'
 
