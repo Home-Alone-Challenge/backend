@@ -9,4 +9,15 @@ class Api::V1::DailyTipsController < ApplicationController
       dailytip.save
     end
   end
+
+  def random_dailytip
+    @random_dailytip = Dailytip.all.sample
+    render json: @random_dailytip
+  end
+
+  def show
+    @dailytip = Dailytip.find(params[:id])
+    render json: @dailytip
+  end
 end
+
