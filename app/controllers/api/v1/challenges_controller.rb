@@ -41,6 +41,7 @@ class Api::V1::ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
+    redirect_to api_v1_user_challenges_path
   end
 
   private
