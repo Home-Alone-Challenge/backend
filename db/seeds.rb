@@ -1,18 +1,18 @@
-require 'csv'
+# require 'csv'
 
 puts 'Cleaning dailytip database'
 Dailytip.destroy_all
 
-csv_options = { col_sep: ',', headers: :first_row }
-filepath    = 'dailytips.csv'
-puts filepath
-puts "setup"
-CSV.foreach(filepath, csv_options) do |row|
-  dailytip = Dailytip.new
-  dailytip.title = row['Title']
-  dailytip.description = row['Description']
-  dailytip.save
-end
+# csv_options = { col_sep: ',', headers: :first_row }
+# filepath    = 'dailytips.csv'
+# puts filepath
+# puts "setup"
+# CSV.foreach(filepath, csv_options) do |row|
+#   dailytip = Dailytip.new
+#   dailytip.title = row['Title']
+#   dailytip.description = row['Description']
+#   dailytip.save
+# end
 
 puts 'creating Dailytip'
 dailytip = Dailytip.create!(
