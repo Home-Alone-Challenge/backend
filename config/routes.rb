@@ -7,6 +7,7 @@ namespace :api, defaults: { format: :json } do
       end
       resources :dailytips, only: [:create, :show]
       get '/random_challenge', to: "challenges#random_challenge", as: :random_challenge
+      get '/daily_challenge', to: "challenges#daily_challenge", as: :daily_challenge
       get '/random_dailytip', to: "dailytips#random_dailytip", as: :random_dailytip
     end
   end
