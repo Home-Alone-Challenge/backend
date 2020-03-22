@@ -12,7 +12,6 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.new()
     user.save
-    render json: user.slice(:id)
+    render json: user.slice(:uuid)
   end
 end
-
