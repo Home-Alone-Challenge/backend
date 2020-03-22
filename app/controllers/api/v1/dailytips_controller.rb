@@ -1,4 +1,4 @@
-class Api::V1::DailytipsController < ApplicationController
+class Api::V1::DailyTipsController < ApplicationController
   # def create
   #   csv_options = { col_sep: ',', headers: :first_row }
   #   filepath    = '../../../dailytips.csv'
