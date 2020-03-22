@@ -1,7 +1,8 @@
 class Api::V1::DailyTipsController < ApplicationController
   def create
+    require 'csv'
     csv_options = { col_sep: ',', headers: :first_row }
-    filepath    = '../../../dailytips.csv'
+    filepath    = 'dailytips.csv'
     CSV.foreach(filepath, csv_options) do |row|
       dailytip = Dailytip.new
       dailytip.title = row['Title']
