@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_03_22_101744) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "challenges", force: :cascade do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_101744) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uuid", default: "c2a41108-e61e-41ef-8392-227ed0a05de9"
+    t.string "uuid", default: "a6518371-c132-48af-bdfa-fcc7fadebdfe"
   end
+
 end
