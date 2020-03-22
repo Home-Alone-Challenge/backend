@@ -11,6 +11,14 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @random_challenge
   end
 
+  def daily_challenge
+    @daily_challenge = Challenge.all.sample
+    render json: @daily_challenge
+    #if 24 hours pass, increment the challenge id by one
+    #see heroku jobs
+
+  end
+
   def show
     render json: @challenge
   end
