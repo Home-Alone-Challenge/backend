@@ -12,11 +12,23 @@ class Api::V1::ChallengesController < ApplicationController
   end
 
   def daily_challenge
-    @daily_challenge = Challenge.all.sample
+    if Challenge.find_by(daily: true).nil?
+      set_daily
+    end
+    @daily_challenge = Challenge.find_by(daily: true)
     render json: @daily_challenge
-    #if 24 hours pass, increment the challenge id by one
-    #see heroku jobs
+  end
 
+  def set_daily
+
+    if !Challenge.find_by(daily: true).nil?
+      undaily_challenge = Challenge.find_by(daily: true)
+      undaily_challenge.daily = false
+      undaily_challenge.save
+    end
+    daily_challenge = Challenge.all.sample
+    daily_challenge.daily = true
+    daily_challenge.save
   end
 
   def show

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_155338) do
+ActiveRecord::Schema.define(version: 2020_03_22_155925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_155338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
+    t.boolean "daily", default: false
   end
 
   create_table "dailytips", force: :cascade do |t|
@@ -29,12 +30,13 @@ ActiveRecord::Schema.define(version: 2020_03_21_155338) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "daily", default: false
   end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uuid", default: "c2a41108-e61e-41ef-8392-227ed0a05de9"
+    t.string "userId", default: "7fb63487-3171-4bed-837c-05ba25fbd693"
   end
 
 end
