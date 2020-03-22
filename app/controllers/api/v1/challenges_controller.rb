@@ -43,8 +43,8 @@ class Api::V1::ChallengesController < ApplicationController
   end
 
   def create
-    @challenge.user_id = params[:user_id]
     @challenge = Challenge.new(challenge_params)
+    @challenge.user_id = params[:user_id]
     if @challenge.save
       redirect_to api_v1_user_challenge_path(@challenge)
     else
