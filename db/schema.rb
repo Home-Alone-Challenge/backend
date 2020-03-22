@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_141249) do
+
+ActiveRecord::Schema.define(version: 2020_03_22_155925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_141249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
+    t.boolean "daily", default: false
     t.uuid "user_id"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
@@ -32,11 +34,13 @@ ActiveRecord::Schema.define(version: 2020_03_22_141249) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "daily", default: false
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "userId", default: "7fb63487-3171-4bed-837c-05ba25fbd693"
   end
 
   add_foreign_key "challenges", "users"
