@@ -21,6 +21,7 @@ class Api::V1::ChallengesController < ApplicationController
   end
 
   def edit
+    render json: @challenge
   end
 
   def create
