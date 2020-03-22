@@ -6,8 +6,15 @@ class Api::V1::ChallengesController < ApplicationController
   end
 
   def random_challenge
-    @random_challenge = Challenge.all.where(category: params[:category]).sample
+    @random_challenge = Challenge.where(category: params[:category]).sample
     render json: @random_challenge
+  end
+
+  def daily_challenge
+    @daily_challenge = Challenge.all.sample
+    render json: @daily_challenge
+    #if 24 hours pass, increment the challenge id by one
+    #see heroku jobs
   end
 
   def show
