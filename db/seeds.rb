@@ -1,3 +1,16 @@
+require 'csv'
+
+csv_options = { col_sep: ',', headers: :first_row }
+filepath    = 'dailytips.csv'
+puts filepath
+puts "setup"
+CSV.foreach(filepath, csv_options) do |row|
+  dailytip = Dailytip.new
+  dailytip.title = row['Title']
+  dailytip.description = row['Description']
+  dailytip.save
+end
+
 puts 'Cleaning dailytip database'
 Dailytip.destroy_all
 
@@ -34,5 +47,4 @@ Challenge.create(title: "Du Poet!", description: "Schreibe ein kleines aber fein
 Challenge.create(title: "Verkleide-sich-wer-kann", description: "Als Kinder haben wir uns ständig verkleidet, warum nicht heute? Suche oder bastle Dir eine Verkleidung. Mache und poste ein Selfie davon.", category: "fun", duration: 5)
 
 puts "Challenge creation done."
-
 
