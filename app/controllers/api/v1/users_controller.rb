@@ -4,11 +4,16 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new()
   end
 
+  def show
+    @user = User.find(params[:id])
+    render json: @user
+  end
+
   def create
     user = User.new()
+    user.id = user.uuid
     user.save
-    render json: user.uuid
-    #database
-    #function that shows save
+    render json: user
   end
 end
+
