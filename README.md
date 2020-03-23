@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# HomeAloneChallengeBackend
 
-Things you may want to cover:
+Hi, this is the backend of the Home-Alone-Challenge App.
+It was generated with Ruby on Rails version ruby 2.6.5.
 
-* Ruby version
+## Getting started
+clone repository `git clone /YOUR SSH KEY/)`
+change into the newly created folder
+run `npm install` or `yarn install`
+run `rails db:migrate`
+run `rails db:seed`
 
-* System dependencies
+## System dependencies
+Webpack server
+See gem files folder
 
-* Configuration
+## Database 
+created with postgres-ql
+create database run `rails db:create`
 
-* Database creation
+## How to run the test suite
+run `rails s`
+go to `http://localhost:3000/`
+`rails routes` in terminal to see all routes
 
-* Database initialization
+## Deployment instructions
+Deployed on Heroku
+https://git.heroku.com/home-alone-challenge.git
 
-* How to run the test suite
+## Home Allone Challenge is an API app and can be used to fetch data
+test API calls can be done with Postman
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
