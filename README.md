@@ -13,23 +13,22 @@ run `rails db:migrate`
 run `rails db:seed`
 
 ## System dependencies
-Webpack server
-See gem files folder
+- Webpack server
+- See gem files folder
 
 ## Database 
-created with postgres-ql
-create database run `rails db:create`
+- created with postgres-ql
+- create database run `rails db:create`
 
 ## How to run the test suite
-run `rails s`
-go to `http://localhost:3000/`
-`rails routes` in terminal to see all routes
+- run `rails s`
+- navigate to `http://localhost:3000/`
+- run`rails routes` in terminal to see all routes
 
 ## Deployment instructions
-Deployed on Heroku
-https://git.heroku.com/home-alone-challenge.git
+- Deployed on Heroku https://git.heroku.com/home-alone-challenge.git
 
 ## Home Allone Challenge is an API app and can be used to fetch data
-test API calls can be done with Postman
+- test API calls can be done with Postman
 
 
