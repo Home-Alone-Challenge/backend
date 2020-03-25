@@ -20,17 +20,6 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @daily_challenge
   end
 
-  def set_daily
-    if !Challenge.find_by(daily: true).nil?
-      undaily_challenge = Challenge.find_by(daily: true)
-      undaily_challenge.daily = false
-      undaily_challenge.save
-    end
-    daily_challenge = Challenge.all.sample
-    daily_challenge.daily = true
-    daily_challenge.save
-  end
-
   def show
     render json: @challenge
   end
