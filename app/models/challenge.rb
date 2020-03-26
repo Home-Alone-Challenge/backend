@@ -1,8 +1,8 @@
 class Challenge < ApplicationRecord
-  validates :description, presence: true, length: { in: 10...300 }
-  validates :title, presence: true
-  validates :duration, presence: true
-  validates :category, presence: true
+  validates :description, presence: { message: "must be given" }, length: { in: 6...300, message: 'Please enter between 3 and 300 signs' }
+  validates :title, presence: { message: "must be given" }
+  validates :duration, presence: { message: "must be given" }
+  validates :category, presence: { message: "must be given" }
 
   def self.set_daily
     if !Challenge.find_by(daily: true).nil?
