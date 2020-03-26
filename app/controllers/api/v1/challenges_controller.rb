@@ -20,17 +20,6 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @daily_challenge
   end
 
-  def set_daily
-    if !Challenge.find_by(daily: true).nil?
-      undaily_challenge = Challenge.find_by(daily: true)
-      undaily_challenge.daily = false
-      undaily_challenge.save
-    end
-    daily_challenge = Challenge.all.sample
-    daily_challenge.daily = true
-    daily_challenge.save
-  end
-
   def show
     render json: @challenge
   end
@@ -40,20 +29,27 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @challenge
   end
 
-  def edit
-    render json: @challenge
-  end
-
   def create
-    @challenge = Challenge.new(challenge_params)
-    @challenge.user_id = params[:user_id]
-    @challenge.save
+    if params[:challenge].present?
+      @challenge = Challenge.new(challenge_params)
+      @challenge.user_id = params[:user_id]
+      if @challenge.save
+        render json: @challenge
+      else
+        render json: @challenge.errors.full_messages
+      end
+    else
+      render json: ['Title must be given', 'Duration must be given', 'Category must be given', 'Description must be given']
+    end
   end
 
   def update
     @challenge.user_id = params[:user_id]
-    @challenge.update(challenge_params)
-    redirect_to api_v1_user_challenge_path(@challenge)
+    if @challenge.update(challenge_params)
+      render json: @challenge
+    else
+      render json: @challenge.errors.full_messages
+    end
   end
 
   def destroy

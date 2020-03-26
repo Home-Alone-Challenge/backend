@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       root to: 'challenges#index'
       resources :users, only: [:show, :create] do
-        resources :challenges, only: [:show, :new, :create, :edit, :update, :index, :destroy]
+        resources :challenges, only: [:show, :new, :create, :update, :index, :destroy]
         resources :feedbacks, only: [:create]
       end
       resources :feedbacks, only: [:index]
