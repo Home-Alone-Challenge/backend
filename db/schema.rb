@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_175655) do
+ActiveRecord::Schema.define(version: 2020_03_25_205647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,17 @@ ActiveRecord::Schema.define(version: 2020_03_22_175655) do
     t.boolean "daily", default: false
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "userId", default: "a5765874-f32f-4a47-afbd-ae8ace89adea"
+    t.string "uuid", default: "c2a41108-e61e-41ef-8392-227ed0a05de9"
   end
 
 end
